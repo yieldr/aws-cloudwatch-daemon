@@ -28,7 +28,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	cw := NewCloudWatch(args.namespace)
+	cw := NewCloudWatch(args.namespace, metadata.Region)
 	cw.AddDimention("InstanceId", metadata.InstanceID)
 	cw.AddDimention("InstanceType", metadata.InstanceType)
 	cw.AddDimention("ImageId", metadata.ImageID)
@@ -39,10 +39,10 @@ func main() {
 			log.Printf("Failed to get disk usage: %s", err)
 			os.Exit(2)
 		}
-		cw.AddMetric("DiskUtilization", "Percentage", info.Utilization)
+		cw.AddMetric("DiskUtilization", "Percent", info.Utilization)
 		cw.AddMetric("DiskUsed", "Bytes", float64(info.Used))
 		cw.AddMetric("DiskAvailable", "Bytes", float64(info.Available))
-		cw.AddMetric("DiskInodesUtilization", "Percentage", info.InodeUtilization)
+		cw.AddMetric("DiskInodesUtilization", "Percent", info.InodeUtilization)
 	}
 
 	if args.memory {
@@ -52,18 +52,18 @@ func main() {
 			os.Exit(2)
 		}
 
-		cw.AddMetric("MemoryUtilization", "Percentage", info.Utilization)
+		cw.AddMetric("MemoryUtilization", "Percent", info.Utilization)
 		cw.AddMetric("MemoryUsed", "Bytes", info.Used)
 		cw.AddMetric("MemoryAvailable", "Bytes", info.Available)
-		cw.AddMetric("SwapUtilization", "Percentage", info.SwapUtilization)
+		cw.AddMetric("SwapUtilization", "Percent", info.SwapUtilization)
 		cw.AddMetric("SwapUsed", "Bytes", info.SwapUsed)
 	}
 
-	output, err := cw.Send()
+	_, err = cw.Send()
 	if err != nil {
 		log.Printf("Failed to send metrics to cloudfront: %s", err)
 		os.Exit(3)
 	}
 
-	log.Printf("Successfully sent metrics to aws CloudWatch: %s", output)
+	log.Printf("Successfully sent metrics to AWS CloudWatch.")
 }

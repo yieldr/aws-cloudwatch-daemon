@@ -1,8 +1,8 @@
 [Unit]
-Description=go-aws-mon
+Description=Push instance metrics to CloudFront
 
 [Service]
-ExecStart=/home/core/go-aws-mon.sh
+ExecStart=/usr/bin/docker run --rm -v /usr/share/ca-certificates:/etc/ssl/certs:ro yieldr/aws-cloudwatch-daemon
 
 [Install]
 WantedBy=multi-user.target

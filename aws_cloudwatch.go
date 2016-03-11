@@ -52,9 +52,9 @@ func (c *CloudWatch) Send() (string, error) {
 	return awsutil.StringValue(out), nil
 }
 
-func NewCloudWatch(namespace string) *CloudWatch {
+func NewCloudWatch(namespace, region string) *CloudWatch {
 	return &CloudWatch{
-		Client:    cloudwatch.New(session.New()),
+		Client:    cloudwatch.New(session.New(), &aws.Config{Region: aws.String(region)}),
 		Metrics:   make([]*cloudwatch.MetricDatum, 0),
 		Namespace: namespace,
 	}

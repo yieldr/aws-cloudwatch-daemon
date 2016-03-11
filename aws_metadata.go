@@ -10,7 +10,8 @@ import (
 type EC2Metadata struct {
 	InstanceID,
 	ImageID,
-	InstanceType string
+	InstanceType,
+	Region string
 }
 
 func NewEc2Metadata() (*EC2Metadata, error) {
@@ -24,6 +25,7 @@ func NewEc2Metadata() (*EC2Metadata, error) {
 	meta.InstanceID, _ = service.GetMetadata("instance-id")
 	meta.InstanceType, _ = service.GetMetadata("instance-type")
 	meta.ImageID, _ = service.GetMetadata("ami-id")
+	meta.Region, _ = service.Region()
 
 	return meta, nil
 }
