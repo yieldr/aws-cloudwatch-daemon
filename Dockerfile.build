@@ -1,0 +1,8 @@
+FROM golang:1.5
+
+MAINTAINER Alex Kalyvitis <alex.kalyvitis@yieldr.com>
+
+RUN mkdir -p /go/src/github.com/yieldr/aws-cloudwatch-daemon
+WORKDIR /go/src/github.com/yieldr/aws-cloudwatch-daemon
+
+ENV GO15VENDOREXPERIMENT=1
