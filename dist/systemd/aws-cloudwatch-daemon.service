@@ -2,6 +2,7 @@
 Description=Push instance metrics to CloudFront
 
 [Service]
+ExecStartPre=/usr/bin/docker pull yieldr/aws-cloudwatch-daemon
 ExecStart=/usr/bin/docker run --rm -v /usr/share/ca-certificates:/etc/ssl/certs:ro yieldr/aws-cloudwatch-daemon
 
 [Install]
