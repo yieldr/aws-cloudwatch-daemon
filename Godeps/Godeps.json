@@ -33,13 +33,24 @@
 			"Rev": "776aa739ce9373377cd16f526cdf06cb4c89b40f"
 		},
 		{
-			"ImportPath": "github.com/guillermo/go.procmeminfo",
-			"Rev": "be4355a9fb0e5340ebee5b05aafe85948eaccd1b"
-		},
-		{
 			"ImportPath": "github.com/jmespath/go-jmespath",
 			"Comment": "0.2.2-12-g0b12d6b",
 			"Rev": "0b12d6b521d83fc7f755e7cfc1b1fbdd35a01a74"
+		},
+		{
+			"ImportPath": "github.com/shirou/gopsutil/disk",
+			"Comment": "1.0.0-318-g4dfd293",
+			"Rev": "4dfd293fa83ba83c0728beaa68fc4402e6effe9d"
+		},
+		{
+			"ImportPath": "github.com/shirou/gopsutil/internal/common",
+			"Comment": "1.0.0-318-g4dfd293",
+			"Rev": "4dfd293fa83ba83c0728beaa68fc4402e6effe9d"
+		},
+		{
+			"ImportPath": "github.com/shirou/gopsutil/mem",
+			"Comment": "1.0.0-318-g4dfd293",
+			"Rev": "4dfd293fa83ba83c0728beaa68fc4402e6effe9d"
 		}
 	]
 }
