@@ -1,5 +1,7 @@
 # aws-cloudwatch-daemon
 
+[![wercker status](https://app.wercker.com/status/37a2db305b61c9269076cc84f0c0bd06/s/master "wercker status")](https://app.wercker.com/project/bykey/37a2db305b61c9269076cc84f0c0bd06)
+
 Send disk and memory usage statistics to AWS CloudWatch.
 
 ## Usage
